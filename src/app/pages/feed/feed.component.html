@@ -1,0 +1,27 @@
+<div class="app bg-blueGray-200">
+
+  <div class="columns-1 my-12 mx-12 px-10 mx-auto">
+
+    <form class="bg-white shadow rounded-lg mb-6 p-4">
+      <input [(ngModel)]="title" name="title" placeholder="Title" class="w-full rounded-lg p-2 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400">
+      <textarea [(ngModel)]="message" name="message" placeholder="What's new?" class="w-full rounded-lg p-2 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
+      <footer class="flex justify-between mt-2">
+        <button (click)="this.addNews()" class="flex items-center py-2 px-4 rounded-lg text-sm bg-blue-600 text-white shadow-lg">Send
+          <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </footer>
+    </form>
+    <div *ngIf="posts">
+      <app-post
+        *ngFor="let post of posts; let i = index"
+        [post]="post"
+      >
+<!--        [user]="userService.getUser(post.userId)"-->
+
+      </app-post>
+    </div>
+<!--    <app-post></app-post>-->
+<!--    <app-post></app-post>-->
+<!--    <app-post></app-post>-->
+  </div>
+</div>

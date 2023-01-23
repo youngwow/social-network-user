@@ -1,0 +1,35 @@
+<article class="py-5">
+
+  <div class="max-w-xl bg-white rounded-lg border border-gray-200 shadow-md mx-auto">
+    <div class="flex flex-row px-2 py-3 mx-3">
+      <div class="w-auto h-auto rounded-full">
+        <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" [src]="post.userPicture">
+      </div>
+      <div class="flex flex-col mb-2 ml-4 mt-1">
+        <div class="text-gray-600 text-sm font-semibold">{{ post.name }}</div>
+        <div class="flex w-full mt-1">
+<!--          TODO: fix that-->
+          <div *ngIf="post.post.userID === 1" class="text-blue-700 font-base text-xs mr-1 cursor-pointer">
+            Founder, CEO (Admin)
+          </div>
+          <div *ngIf="post.post.userID !== 1" class="text-blue-700 font-base text-xs mr-1 cursor-pointer">
+            User
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-b border-gray-100"></div>
+    <div class="max-w-xl bg-white mx-auto">
+      <div class="p-5">
+        <h2 class="text-lg font-bold">{{ post.post.title }}</h2>
+        <p class="text-gray-500 text-md">
+          UserID: {{post.post.userID}}
+          IdPost: {{ post.post.id }}
+        </p>
+        <p class="text-gray-500 text-md">
+          {{ post.post.content }}
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
